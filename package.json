@@ -1,0 +1,60 @@
+{
+  "name": "event-hive-backend",
+  "version": "1.0.0",
+  "description": "Event &amp; Ticket Booking Platform.  A scalable, modular backend platform for managing community events, ticket reservations with seat-count inventory, and role-based event organization.",
+  "author": {
+    "name": "himel",
+    "email": "dev.himel.0@gmail.com"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "main": "server.ts",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "tsx watch ./src/server.ts",
+    "build": "tsup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-himel-0o0/event-hive-backend.git"
+  },
+  "keywords": [
+    "nodejs",
+    "typescript",
+    "express",
+    "backend",
+    "rest-api",
+    "database",
+    "postgresql",
+    "javascript"
+  ],
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/dev-himel-0o0/event-hive-backend/issues"
+  },
+  "homepage": "https://github.com/dev-himel-0o0/event-hive-backend#readme",
+  "dependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.11",
+    "@types/pg": "^8.23.1",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
