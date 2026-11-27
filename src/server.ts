@@ -1,5 +1,5 @@
 import express, { type Express, type Request, type Response } from "express";
-import config from "./config";
+import config from "./config/env";
 
 const app: Express = express();
 
