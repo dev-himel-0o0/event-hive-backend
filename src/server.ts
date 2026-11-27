@@ -1,12 +1,12 @@
-import express, { type Express, type Request, type Response } from "express";
+import app from "./app";
+import { initNeonDB } from "./config/db";
 import config from "./config/env";
 
-const app: Express = express();
+const main = async () => {
+  await initNeonDB();
+  app.listen(config.port, () => {
+    console.log(`Express Server is running on PORT: ${config.port}`);
+  });
+};
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
-
-app.listen(config.port, () => {
-  console.log(`Example app listening on port ${config.port}`);
-});
+main();
