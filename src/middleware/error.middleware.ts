@@ -70,7 +70,13 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   }
 
   if (error.type === "entity.parse.failed") {
-    return sendError(res, 400, "Invalid JSON payload");
+    return sendError(res, 400, "Validation Error", [
+      {
+        field: "body",
+        message:
+          "Malformed JSON body. Check for trailing commas, single quotes, or missing braces.",
+      },
+    ]);
   }
 
   console.error(`[${req.method} ${req.originalUrl}]`, err);
