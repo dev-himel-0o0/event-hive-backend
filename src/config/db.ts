@@ -2,7 +2,11 @@ import { Pool } from "pg";
 import config from "./env";
 
 export const pool = new Pool({
-  connectionString: config.connectionString,
+  connectionString: config.databaseUrl,
+});
+
+pool.on("error", (error) => {
+  console.error("Unexpected PostgreSQL pool error:", error);
 });
 
 export const initNeonDB = async () => {
