@@ -1,21 +1,26 @@
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import type { Express, Request, Response } from "express";
-import express from "express";
+import express, { type Express, type Request, type Response } from "express";
+import config from "./config/env";
+import globalErrorHandler from "./middleware/error.middleware";
+import notFoundHandler from "./middleware/not-found.middleware";
+import authRouter from "./modules/auth/auth.route";
 
 const app: Express = express();
 
-const corsOptions = {
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.disable("x-powered-by");
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded());
 
 app.get("/", (_req: Request, res: Response) => {
-  res.send("Home");
+  res.send("EventHive API");
 });
+
+app.use(`${config.apiVersion}/auth`, authRouter);
+
+app.use(notFoundHandler);
+app.use(globalErrorHandler);
 
 export default app;
