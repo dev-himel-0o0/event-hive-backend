@@ -3,10 +3,16 @@ import { initNeonDB } from "./config/db";
 import config from "./config/env";
 
 const main = async () => {
-  await initNeonDB();
-  app.listen(config.port, () => {
-    console.log(`Express Server is running on PORT: ${config.port}`);
-  });
+  try {
+    await initNeonDB();
+
+    app.listen(config.port, () => {
+      console.log(`Express Server is running on PORT: ${config.port}`);
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
 };
 
-main();
+void main();
