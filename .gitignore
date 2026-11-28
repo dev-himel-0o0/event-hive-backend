@@ -1,3 +1,6 @@
+# Optional folders
+.vscode
+
 # Logs
 logs
 *.log
