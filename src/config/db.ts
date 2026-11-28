@@ -6,7 +6,6 @@ export const pool = new Pool({
 });
 
 export const initNeonDB = async () => {
-  // Users Table
   await pool.query(`
     CREATE TABLE IF NOT EXISTS users (
       id         SERIAL PRIMARY KEY,
@@ -20,7 +19,6 @@ export const initNeonDB = async () => {
     );
   `);
 
-  // Events Table
   await pool.query(`
     CREATE TABLE IF NOT EXISTS events (
       id              SERIAL PRIMARY KEY,
@@ -43,7 +41,6 @@ export const initNeonDB = async () => {
     );
   `);
 
-  // Bookings Table
   await pool.query(`
     CREATE TABLE IF NOT EXISTS bookings (
       id             SERIAL PRIMARY KEY,
